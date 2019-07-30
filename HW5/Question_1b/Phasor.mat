@@ -1,0 +1,18 @@
+R = 2; 
+L = 20*10^-4; 
+C = 5*10-3;
+omega = 1000;
+Zm = sqrt(R^2+(omega*L-(1/omega*C))^2);
+Z = linspace(0,Zm,100);
+theta = atan((omega*L-(1/omega*C))/R);
+theta = ones(1,100)*theta;
+[x,y] = pol2cart(theta,Z);
+plot(x,y,'linewidth',2.5)
+grid on 
+xlim([-3,3])
+ylim([-3,3])
+xlabel('\Re')
+ylabel('\Im')
+ax = gca;
+ax.XAxisLocation = 'origin';
+ax.YAxisLocation = 'origin';
